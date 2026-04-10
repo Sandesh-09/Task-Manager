@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="card hero">
+        <p class="eyebrow">Task Management System</p>
+        <h1>Task Manager</h1>
+        <p class="hero-copy">
+          Add tasks, mark them complete, filter what you see, and remove anything
+          you no longer need.
+        </p>
+      </section>
+
+      <section class="card">
+        <form id="task-form" class="task-form">
+          <label class="field">
+            <span>New task</span>
+            <input
+              id="title"
+              name="title"
+              type="text"
+              maxlength="120"
+              placeholder="What needs to get done?"
+              required
+            />
+          </label>
+          <button id="submit-button" type="submit">Add task</button>
+        </form>
+        <p id="form-message" class="status-message" aria-live="polite"></p>
+      </section>
+
+      <section class="card">
+        <div class="toolbar">
+          <div class="filter-group" role="group" aria-label="Task filters">
+            <button type="button" class="filter-button active" data-filter="all">
+              All
+            </button>
+            <button type="button" class="filter-button" data-filter="active">
+              Active
+            </button>
+            <button type="button" class="filter-button" data-filter="completed">
+              Completed
+            </button>
+          </div>
+          <button id="refresh-button" type="button" class="secondary-button">
+            Refresh
+          </button>
+        </div>
+
+        <p id="list-message" class="status-message" aria-live="polite"></p>
+        <div id="loading-state" class="loading-state">Loading tasks...</div>
+        <ul id="task-list" class="task-list" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <template id="task-item-template">
+      <li class="task-item">
+        <label class="task-main">
+          <input class="task-checkbox" type="checkbox" />
+          <span class="task-copy">
+            <span class="task-title"></span>
+            <span class="task-meta"></span>
+          </span>
+        </label>
+        <button type="button" class="danger-button task-delete">Delete</button>
+      </li>
+    </template>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

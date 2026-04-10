@@ -1,0 +1,248 @@
+:root {
+  color-scheme: light;
+  --bg: #f3efe6;
+  --bg-accent: #e4dac7;
+  --card: rgba(255, 252, 246, 0.92);
+  --text: #2d241b;
+  --muted: #6b5b4b;
+  --border: rgba(78, 59, 39, 0.12);
+  --primary: #bb5a32;
+  --primary-dark: #914324;
+  --success: #2f7c57;
+  --danger: #9d2f2f;
+  --shadow: 0 24px 70px rgba(83, 57, 26, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.65), transparent 30%),
+    linear-gradient(135deg, var(--bg), var(--bg-accent));
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(780px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.card + .card {
+  margin-top: 1rem;
+}
+
+.hero h1 {
+  margin: 0.2rem 0 0.5rem;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-copy {
+  margin: 0;
+  max-width: 36rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.task-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.field span {
+  font-weight: 600;
+}
+
+input[type="text"] {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+input[type="text"]:focus,
+button:focus-visible,
+.filter-button:focus-visible,
+.secondary-button:focus-visible,
+.danger-button:focus-visible {
+  outline: 3px solid rgba(187, 90, 50, 0.2);
+  outline-offset: 2px;
+}
+
+button {
+  border: none;
+  border-radius: 14px;
+  padding: 0.8rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 140ms ease, opacity 140ms ease, background 140ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+  transform: none;
+}
+
+#submit-button,
+.filter-button.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.secondary-button,
+.filter-button {
+  background: rgba(113, 88, 58, 0.08);
+  color: var(--text);
+}
+
+.danger-button {
+  background: rgba(157, 47, 47, 0.12);
+  color: var(--danger);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.status-message {
+  min-height: 1.2rem;
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+}
+
+.status-message.error {
+  color: var(--danger);
+}
+
+.status-message.success {
+  color: var(--success);
+}
+
+.loading-state {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.task-main {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  flex: 1;
+  cursor: pointer;
+}
+
+.task-checkbox {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.2rem;
+  accent-color: var(--success);
+}
+
+.task-copy {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.task-title {
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.task-item.completed .task-title {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.task-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.empty-state {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px dashed var(--border);
+  border-radius: 18px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    width: min(100% - 1rem, 780px);
+    padding-top: 1rem;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

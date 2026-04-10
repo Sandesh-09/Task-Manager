@@ -1,0 +1,11 @@
+{
+  "name": "task-manager-assignment",
+  "version": "1.0.0",
+  "description": "Small full stack task manager for the technical assignment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "license": "MIT"
+}
