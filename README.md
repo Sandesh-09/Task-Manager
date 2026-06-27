@@ -1,4 +1,4 @@
-# Task Manager Assignment
+# Task Manager
 
 A small full stack Task Manager built with a dependency-free Node.js backend and a vanilla JavaScript frontend.
 
